@@ -1,4 +1,4 @@
-package MC322.Labs;
+package MC322.MC322TurmaA.Lab02.src;
 
 import java.util.Random;
 
@@ -14,7 +14,7 @@ public class Sinistro {
         this.endereco = endereco;
     }
 
-    
+    // Fazer um N que aumenta a cada novo sinistro
     private int gerarId() {
         Random rand = new Random();
         int randomId = rand.nextInt(999999);

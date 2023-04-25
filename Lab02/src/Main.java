@@ -1,4 +1,4 @@
-package MC322.Labs;
+package MC322.MC322TurmaA.Lab02.src;
 
 import java.util.Scanner;
 
@@ -16,7 +16,7 @@ public class Main {
 
         System.out.print("Criando cadastro de seguradora...\n");
         Seguradora seguradora1 = new Seguradora(
-            "In Love With My Car - Seguros", "0012345678",
+            "In Love With My Car - Seguros", "0123456789",
             "ilovemycar@gmail.com", "Inglaterra");
 
         

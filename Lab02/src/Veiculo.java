@@ -1,4 +1,4 @@
-package MC322.Labs;
+package MC322.MC322TurmaA.Lab02.src;
 
 public class Veiculo {
 
