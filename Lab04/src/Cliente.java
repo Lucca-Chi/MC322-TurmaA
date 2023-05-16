@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 
-public class Cliente {
+public abstract class Cliente {  // Testar pra ver se pode ser abstrata mesmo
 
     private String nome;
     private String endereco;
     private ArrayList<Veiculo> listaVeiculos;
+    private double valorSeguro;
 
     public Cliente(String nome, String endereco, ArrayList<Veiculo> listaVeiculos) {
         this.nome = nome;
@@ -14,7 +15,8 @@ public class Cliente {
 
     public String toString() {
 
-        String str = String.format("Nome: %s\nEndereço: %s\nLista de Veículos: ", this.nome, this.endereco);
+        String str = String.format("Nome: %s\nEndereço: %s\nValor do Seguro: %.2f\nLista de Veículos: ",
+            this.nome, this.endereco, this.valorSeguro);
 
         int tamanhoLista = listaVeiculos.size();
         for (int i = 0; i < tamanhoLista - 1; i++) {
@@ -26,6 +28,21 @@ public class Cliente {
 
         return str;
     }
+
+
+    public int buscarVeiculo(String placa) {
+
+        int tamanhoLista = this.listaVeiculos.size();
+
+        for (int i = 0; i < tamanhoLista; i++) {
+            if (this.listaVeiculos.get(i).getPlaca().equals(placa)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public abstract double calculaScore();
 
 
     // Getters e setters
@@ -42,6 +59,10 @@ public class Cliente {
         return listaVeiculos;
     }
 
+    public double getValorSeguro() {
+        return valorSeguro;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -53,5 +74,9 @@ public class Cliente {
     public void setListaVeiculos(ArrayList<Veiculo> listaVeiculos) {
         this.listaVeiculos = listaVeiculos;
     }
-    
+
+    public void setValorSeguro(double valorSeguro) {
+        this.valorSeguro = valorSeguro;
+    }
+
 }
