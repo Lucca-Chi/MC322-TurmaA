@@ -366,6 +366,29 @@ public class Seguradora {
     }
 
 
+    public boolean removerSinistro(String id) {
+
+        Seguro seguroEmAnalise;
+        for (int i = 0; i < this.listaSeguros.size(); i++) {
+
+            seguroEmAnalise = this.listaSeguros.get(i);
+
+            Sinistro sinistroEmAnalise;
+            for (int j = 0; j < seguroEmAnalise.getListaSinistros().size(); j++) {
+
+                sinistroEmAnalise = seguroEmAnalise.getListaSinistros().get(j);
+                
+                if (sinistroEmAnalise.getId() == Integer.parseInt(id)) {
+
+                    seguroEmAnalise.getListaSinistros().remove(j);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
     public double calcularReceita() {
 
         double soma = 0;

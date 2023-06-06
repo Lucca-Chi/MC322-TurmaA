@@ -749,6 +749,8 @@ public class Main {
                         System.out.print("Cliente (CPF ou CNPJ): ");
                         inputTexto = sc.nextLine();
                         seguradoraSelecionada.removerCliente(inputTexto);
+
+                        System.out.println("Cliente removido!");
                     }
 
                     else if (inputOperacao2 == MenuExcluir.EXCLUIR_VEICULO.operacao) {
@@ -795,32 +797,17 @@ public class Main {
                         System.out.println("\nExclusão de Sinistro");
 
                         System.out.print("Seguradora: ");
-                        System.out.println("Kepler Seguros");
+                        System.out.println(seguradoraSelecionada.getNome());
         
                         System.out.print("Sinistro (ID): ");
                         inputTexto = sc.nextLine();
-                        
-                        ArrayList<Seguro> segurosEmAnalise =
-                            seguradoraSelecionada.getListaSeguros();
 
-                        boolean terminou = false;
-                        for (int i = 0; i < segurosEmAnalise.size(); i++) {
-
-                            if (!terminou) {
-                                ArrayList<Sinistro> listaSinistrosEmAnalise = 
-                                    segurosEmAnalise.get(i).getListaSinistros();
-
-                                for (int j = 0; j < listaSinistrosEmAnalise.size(); j++) {
-
-                                    if (listaSinistrosEmAnalise.get(j).getId() ==
-                                            Integer.parseInt(inputTexto)) {
-                                        listaSinistrosEmAnalise.remove(j);
-                                        terminou = true;
-                                        break;
-                                    }
-                                }
+                        if (seguradoraSelecionada.removerSinistro(inputTexto)) {
+                                System.out.println("Veículo removido!");
                             }
-                        }
+                            else {
+                                System.out.println("ERRO! CADASTRO NÃO ENCONTRADO");
+                            }
                     }
                 }
             }
